@@ -1,3 +1,9 @@
+### Custom
+
+test*.js
+
+### Node.gitignore
+
 # Logs
 logs
 *.log
