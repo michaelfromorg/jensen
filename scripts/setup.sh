@@ -9,6 +9,7 @@ nvm install --lts
 nvm use --lts
 
 npm install -g @google/clasp
+clasp login
 
 pushd server
 npm i

@@ -1,0 +1,13 @@
+{
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports.ts": "explicit",
+    "source.fixAll.markdownlint": "explicit",
+    "source.fixAll.ts": "explicit",
+    "source.organizeImports": "explicit",
+    "source.removeUnused.ts": "never",
+    "source.removeUnusedImports": "never",
+    "source.sortImports": "explicit",
+  }
+}

@@ -2,6 +2,13 @@
 
 test*.js
 
+### Clasp.gitignore
+
+.clasp.json
+.clasprc.json
+appsscript.json
+creds.json
+
 ### Node.gitignore
 
 # Logs

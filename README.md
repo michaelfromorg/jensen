@@ -1,6 +1,6 @@
 # Jensen
 
-Your personal product managers. AI driven task triage and management. 
+Your personal product managers. AI driven task triage and management.
 
 Built originally for the "World's Shortest Hackathon."
 
@@ -31,4 +31,4 @@ OPENAI_API_KEY="sk-proj-qwerty"
 
 Run the server with `npm run dev`.
 
-To use the client code, set up a Google Apps Script project via Google Drive.
+To use the client code, set up a Google Apps Script project via Google Drive. Then, follow the steps [here](https://github.com/google/clasp/blob/master/docs/run.md#setup-instructions).

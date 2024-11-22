@@ -1,0 +1,27 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "Client for Jensen.",
+  "main": "Code.js",
+  "scripts": {
+    "clone": "clasp clone https://script.google.com/home/projects/1DQXwIM5hQ654TvVCXSbjWxqPCBTK7Pq6yt0-B98eYDynQtSmryXt7Y5-/edit",
+    "push": "clasp push",
+    "push:watch": "clasp push --watch",
+    "deploy": "clasp deploy",
+    "run": "clasp run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelfromyeg/jensen.git"
+  },
+  "keywords": [
+    "jensen"
+  ],
+  "author": "Michael DeMarco <michaelfromyeg@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelfromyeg/jensen/issues"
+  },
+  "homepage": "https://github.com/michaelfromyeg/jensen#readme"
+}
