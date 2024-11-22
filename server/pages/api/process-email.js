@@ -34,7 +34,7 @@ Body: ${body}
         // Use Vercel's AI package to process the prompt
         const { text: chatResponse } = await generateText({
             model: openai('gpt-4o'),
-            system: 'You are an assistant who formats Notion task payloads. Based on the given email chain (represented by an array of to, cc, subject, body, date), create a JSON object in the format: { "title": "string", "body": "string" }. The title should summarize the task, and the body should include detailed information or context for the task.',
+            system: 'You are an assistant who formats Notion task payloads. Based on the given email chain (represented by an array of to, cc, subject, body, date), create a JSON object in the format: { "title": "string", "body": "string" }. The title should summarize the task, and the body should include detailed information or context for the task. If the user asks you to do something in the task, make sure to follow their instructions and include the output in the body! (e.g., "Please include a joke" -> put a joke in the body!)',
             prompt: prompt,
         });
 
