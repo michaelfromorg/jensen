@@ -2,6 +2,12 @@
 
 test*.js
 
+### Supabase.gitignore
+
+.branches
+.temp
+.env
+
 ### Clasp.gitignore
 
 .clasp.json

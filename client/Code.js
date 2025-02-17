@@ -5,10 +5,13 @@ function processEmails() {
   const endpointUrl = "https://assistant-xi-azure.vercel.app/api/process-email";
 
   // Get the processed thread IDs from the script properties
+  // NOTE: this scales up to 500 kB, or about ~5000 thread IDs
+  //       ...once that has been reached, switch to Sheets!
+  //       (we can also store the last processed date to avoid duplicates)
   const properties = PropertiesService.getScriptProperties();
   const processedThreads = JSON.parse(properties.getProperty("processedThreads") || "[]");
 
-  // Search for threads with the target email
+  // Search my e-mail for messages forwarded to the AI service
   const threads = GmailApp.search(`to:${targetEmail}`);
 
   threads.forEach(thread => {
@@ -24,40 +27,28 @@ function processEmails() {
     const emailChainData = messages.map(message => ({
       from: message.getFrom(),
       to: message.getTo(),
-      cc: message.getCc(), // Add CC if needed
+      cc: message.getCc(),
       subject: message.getSubject(),
       body: message.getPlainBody(),
       date: message.getDate(),
     }));
-
-    // for now, just get the last one; it implicitly includes the others if forwarded
     const emailChainData2 = emailChainData[emailChainData.length - 1]
-    console.log("Sending", emailChainData2)
-
-    // Construct the full payload
+    
     const payload = JSON.stringify({
-      threadId: threadId,
-      messages: [emailChainData2], // Includes all emails in the thread
+      threadId,
+      messages: [emailChainData2],
     });
-
     const options = {
       method: "POST",
       contentType: "application/json",
-      payload: payload,
+      payload,
     };
+    console.log("Sending payload:", payload);
 
     try {
-      console.log("Sending payload:", payload);
-
-      // const response = UrlFetchApp.fetch("https://assistant-xi-azure.vercel.app/api/status", {
-      //   method: "GET",
-      //   contentType: "application/json",
-      // });
-
       const response = UrlFetchApp.fetch(endpointUrl, options);
       console.log(`Thread ${threadId} processed successfully:`, response.getContentText());
 
-      // Add the thread ID to the list of processed threads
       processedThreads.push(threadId);
       properties.setProperty("processedThreads", JSON.stringify(processedThreads));
     } catch (error) {

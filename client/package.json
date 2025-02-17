@@ -7,7 +7,7 @@
     "clone": "clasp clone https://script.google.com/home/projects/1DQXwIM5hQ654TvVCXSbjWxqPCBTK7Pq6yt0-B98eYDynQtSmryXt7Y5-/edit",
     "push": "clasp push",
     "push:watch": "clasp push --watch",
-    "deploy": "clasp deploy",
+    "deploy": "npm run push && clasp deploy",
     "run": "clasp run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { generateText } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { Client } from '@notionhq/client';
+import { generateText } from 'ai';
 
 // Initialize Notion client
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -30,6 +30,9 @@ If the user asks you to do something in the task, ensure you follow their instru
 
 const THREAD_IDS = []
 
+/**
+ * Email -> LLM -> Notion.
+ */
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
